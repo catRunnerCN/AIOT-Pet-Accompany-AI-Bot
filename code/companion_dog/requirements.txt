@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+httpx
+requests
+ultralytics
+opencv-python
+numpy
+

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pet Follower Dashboard</title>
+    <link rel="stylesheet" href="assets/dashboard.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <div>
+          <h1>MyPet Dashboard</h1>
+        </div>
+        <div class="header-actions">
+          <div class="badge" id="connectionBadge">Offline</div>
+          <a class="nav-button" href="console.html">Robot Console</a>
+        </div>
+      </header>
+
+      <section class="config-panel">
+        <div class="field-group">
+          <label for="deviceHost">Raspberry Pi address</label>
+          <input
+            type="text"
+            id="deviceHost"
+            placeholder="e.g. 192.168.137.120"
+            autocomplete="off"
+          />
+        </div>
+        <div class="field-group compact">
+          <button id="testConnection">Test Connection</button>
+          <button id="saveConfig" class="primary">Save</button>
+        </div>
+      </section>
+
+      <section class="dashboard-columns">
+        <div class="column column-left">
+          <article class="panel video-panel">
+            <header>
+              <h2>Live Feed</h2>
+              <div class="status-text" id="targetStatus">Waiting for connection...</div>
+            </header>
+            <div class="video-wrapper">
+              <img id="videoFeed" alt="pet follower video" />
+              <div class="overlay" id="stateOverlay">
+                <div>Mode: <span id="modeLabel">-</span></div>
+                <div>Tracking: <span id="followLabel">-</span></div>
+                <div>Confidence: <span id="confidenceLabel">-</span></div>
+                <div>Distance: <span id="distanceLabel">-</span></div>
+              </div>
+            </div>
+          </article>
+          <div class="lower-panels">
+            <article class="panel log-panel">
+              <header>
+                <h2>Log Records</h2>
+                <div class="mini-actions">
+                  <label class="checkbox inline">
+                    <input type="checkbox" id="autoScroll" checked /> Auto scroll
+                  </label>
+                  <button class="ghost" id="clearLog">Clear</button>
+                </div>
+              </header>
+              <ul id="logList"></ul>
+            </article>
+            <article class="panel status-panel">
+              <header>
+                <h2>System Status</h2>
+                <button class="ghost" id="refreshStatus">Refresh</button>
+              </header>
+              <ul class="status-list">
+                <li>
+                  <span>Target detected</span>
+                  <strong id="targetVisible">-</strong>
+                </li>
+                <li>
+                  <span>Last detection</span>
+                  <strong id="lastTargetTime">-</strong>
+                </li>
+                <li>
+                  <span>Obstacle distance</span>
+                  <strong id="safetyDistance">-</strong>
+                </li>
+                <li>
+                  <span>Cliff status</span>
+                  <strong id="cliffStatus">-</strong>
+                </li>
+                <li>
+                  <span>Average FPS</span>
+                  <strong id="fpsLabel">-</strong>
+                </li>
+                <li>
+                  <span>Message</span>
+                  <strong id="lastMessage">-</strong>
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+
+        <div class="column column-right">
+          <article class="panel control-panel">
+            <header>
+              <h2>Control</h2>
+            </header>
+            <div class="control-groups">
+              <section>
+                <h3>Follower</h3>
+                <div class="button-row">
+                  <button data-action="start" data-group="follower" data-default-active>Start</button>
+                  <button data-action="stop" data-group="follower">Stop</button>
+                  <button data-action="search" data-group="follower">Search</button>
+                </div>
+                <div class="button-row">
+                  <button data-action="celebrate" data-group="follower">Celebrate</button>
+                  <button data-action="reset" data-group="follower">Reset state</button>
+                </div>
+              </section>
+              <section>
+                <h3>Manual drive</h3>
+                <div class="drive-grid" id="drivePad">
+                  <button data-drive="forward" data-group="manual-drive" data-default-active>Forward</button>
+                  <div class="drive-middle">
+                    <button data-drive="left" data-group="manual-drive">Left</button>
+                    <button data-drive="stop" data-group="manual-drive" class="ghost">Stop</button>
+                    <button data-drive="right" data-group="manual-drive">Right</button>
+                  </div>
+                  <button data-drive="backward" data-group="manual-drive">Reverse</button>
+                </div>
+                <label class="slider-label">
+                  Speed: <span id="speedValue">45</span>
+                  <input type="range" min="10" max="100" value="45" id="speedSlider" />
+                </label>
+                <label class="slider-label">
+                  Duration (s): <span id="durationValue">0.8</span>
+                  <input type="range" min="0.2" max="3" step="0.1" value="0.8" id="durationSlider" />
+                </label>
+              </section>
+              <section>
+                <h3>Cloud</h3>
+                <div class="button-row">
+                  <button data-action="snapshot">Snapshot</button>
+                  <button data-action="record_video" data-duration="10">Recording</button>
+                  <button data-action="mark" class="ghost">Add marker</button>
+                </div>
+                <div class="auto-record">
+                  <label class="checkbox">
+                    <input type="checkbox" id="autoRecordToggle" /> Auto record when target detected
+                  </label>
+                  <div class="auto-record-controls">
+                    <label class="slider-label interval-input">
+                      Interval (minutes)
+                      <input
+                        type="number"
+                        min="1"
+                        max="100"
+                        step="1"
+                        value="3"
+                        inputmode="numeric"
+                        id="autoRecordInterval"
+                        required
+                      />
+                    </label>
+                    <button class="ghost" id="applyAutoRecord">Confirm</button>
+                  </div>
+                  <div class="auto-record-meta">
+                    <div class="status-text" id="autoRecordStatus">Disabled</div>
+                    <div class="status-text" id="autoRecordLast">No clips yet</div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </article>
+        </div>
+      </section>
+
+    </div>
+    <script src="assets/dashboard.js"></script>
+  </body>
+</html>

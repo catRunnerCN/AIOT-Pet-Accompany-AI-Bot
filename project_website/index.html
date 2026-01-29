@@ -1,0 +1,423 @@
+<!DOCTYPE HTML>
+<!--
+	Prologue by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>AI-Powered Pet Companion Robot – Columbia EECS E4764</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Header -->
+			<div id="header">
+
+				<div class="top">
+
+					<!-- Logo -->
+						<div id="logo">
+							<!-- <span class="image avatar48"><img src="images/avatar.jpg" alt="" /></span> -->
+							<h1 id="title">AI-Powered Pet Companion Robot</h1>
+							<p>Columbia University<br>
+								EECS E4764 – Artificial Intelligence of Things<br>
+								Fall '25<br>
+								Group 5 Project Report
+							</p>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<!--
+
+								Prologue's nav expects links in one of two formats:
+
+								1. Hash link (scrolls to a different section within the page)
+
+								   <li><a href="#foobar" id="foobar-link" class="icon fa-whatever-icon-you-want skel-layers-ignoreHref"><span class="label">Foobar</span></a></li>
+
+								2. Standard link (sends the user to another page/site)
+
+								   <li><a href="http://foobar.tld" id="foobar-link" class="icon fa-whatever-icon-you-want"><span class="label">Foobar</span></a></li>
+
+							-->
+							<ul>
+								<li><a href="#top" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Abstract</span></a></li>
+								<li><a href="#motivation" id="motivation-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Motivation</span></a></li>
+								<li><a href="#system" id="system-link" class="skel-layers-ignoreHref"><span class="icon fa-th">System</span></a></li>
+								<li><a href="#results" id="results-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Results</span></a></li>
+								<li><a href="#references" id="references-link" class="skel-layers-ignoreHref"><span class="icon fa-th">References</span></a></li>
+								<li><a href="#team" id="team-link" class="skel-layers-ignoreHref"><span class="icon fa-user">Our Team</span></a></li>
+								<li><a href="#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Contact</span></a></li>
+							</ul>
+						</nav>
+
+				</div>
+
+				<div class="bottom">
+
+					<!-- Social Icons -->
+						<ul class="icons">
+							<li><a href="https://youtu.be/zGTRVCkby8g" class="icon fa-youtube-play" target="_blank"><span class="label">Demo Video</span></a></li>
+							<li><a href="https://github.com/RobbieFeng/companion_dog" class="icon fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="mailto:yb2636@columbia.edu" class="icon fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+
+				</div>
+
+			</div>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- Intro -->
+					<section id="top" class="one dark cover">
+						<div class="container">
+
+								<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/zGTRVCkby8g?rel=0" frameborder="0" allowfullscreen></iframe>
+
+								<h2 class="alt">AI-Powered Pet Companion Robot</h2>
+								<p class="normal-text">
+									This project presents an AI-powered pet companion robot built on a Raspberry Pi 5, a differential-drive rover chassis, and a vision-based tracking system designed for indoor environments, enabling autonomous companionship and interaction with household pets.
+								</p>
+								<p class="normal-text">
+									The robot combines real-time onboard control with cloud-based vision and large language models to analyze pet behavior and emotional states, trigger adaptive interactions, and automatically record and analyze in response to notable or anomalous behaviors. The system integrates embedded robotics, computer vision, emotion analysis, and LLM-driven behavioral interpretation within an end-to-end AIoT framework.
+								</p>
+
+							<footer>
+								<a href="#motivation" class="button scrolly">Motivation</a>
+							</footer>
+
+						</div>
+					</section>
+
+				<!-- Portfolio -->
+					<section id="motivation" class="two">
+						<div class="container">
+
+							<header>
+								<h2>Motivation</h2>
+							</header>
+
+							<p class="normal-text" align="left">
+								Modern pet owners often spend extended periods away from home, leaving pets without consistent physical interaction or stimulation. While static cameras and automated feeders support basic monitoring and feeding, they lack real-time engagement and adaptive interaction.
+							</p>
+
+							<p class="normal-text" align="left">
+								This project aims to develop a mobile, AI-powered companion that can follow and interact with pets, and continuously observe their behavior. By integrating embedded sensing and control with cloud-based AI models, the system provides owners with high-level summaries of daily activities and potential wellbeing concerns.
+							</p>
+
+						</div>
+					</section>
+
+
+					<section id="system" class="three">
+						<div class="container">
+
+							<header>
+								<h2>System</h2>
+							</header>
+
+								<p class="animated-text" align="left">
+									The robot follows a layered AIoT architecture that connects low-level sensors and
+									actuators on a Raspberry&nbsp;Pi&nbsp;5 with cloud-based perception and reasoning
+									services, mirroring smart pet-care IoT frameworks (Kim, 2016). Sensors feed data into
+									local control and vision modules, which drive the onboard motors and servos, while
+									snapshots and recordings are periodically uploaded to the cloud for deeper analysis and
+									daily summaries.
+								</p>
+
+							<h3 align="left">Architecture</h3>
+							    <p><b style="font-size: 1.1em; font-weight: 500;">Perception Layer (Mobile Robot)</b></p>
+
+								<p class="normal-text" align="left">
+									The perception layer operates on the mobile robot and is responsible for acquiring real-world sensory data. An onboard camera enables pet detection and tracking, while motors and integrated sensors support movement control, obstacle avoidance, and cliff detection to ensure safe navigation in indoor environments.
+								</p>
+
+								<p><b style="font-size: 1.1em; font-weight: 500;">Edge Computing Layer (Raspberry Pi 5)</b></p>
+
+								<p class="normal-text" align="left">
+									The edge computing layer runs on a Raspberry Pi 5 and handles real-time intelligence close to the robot. It performs object detection, follow-control logic, and automatic recording of relevant data, which is selectively uploaded for further analysis while maintaining low-latency control.
+								</p>
+
+								<p><b style="font-size: 1.1em; font-weight: 500;">Intelligence Layer (Cloud Platform)</b></p>
+
+								<p class="normal-text" align="left">
+									This layer processes uploaded images, videos, and logs using advanced computer vision models and large language models. This layer interprets pet behavior and emotional states over time and generates structured summaries, including automated diary-style reports.
+								</p>
+
+								<p><b style="font-size: 1.1em; font-weight: 500;">User Layer (Web)</b></p>
+
+								<p class="normal-text" align="left">
+									The user layer provides interfaces on mobile devices for human interaction. Users can access system logs, visual dashboards, and analytical reports, enabling transparent monitoring of pet activities and insights generated by the system.
+								</p>
+							
+							<figure class="image fit">
+								<img src="images/structure.png" alt="System architecture diagram of the AI-powered pet companion robot" />
+								<figcaption style="text-align:center; font-size:0.85em; color:#888;">
+									System architecture diagram
+								</figcaption>
+							</figure>
+
+							<h3 align="left">Technical Components</h3>
+
+								<p><b style="font-size: 1.1em; font-weight: 500;">Hardware</b></p>
+
+								<p class="normal-text" align="left">
+									The hardware platform mainly consists of a Raspberry Pi 5, a differential-drive robotic chassis, ultrasonic distance and infrared edge sensors, a Pi camera module, and a speaker.
+								</p>
+
+								<p><b style="font-size: 1.1em; font-weight: 500;">Software</b></p>
+
+								<p class="normal-text" align="left">
+									On the software side, OpenCV manages image capture and preprocessing, YOLOv5 performs real-time pet detection, and a VGG16-based model extracts visual emotion cues. Cloud services, including OpenAI Vision and LLM APIs, further generate natural language behavior summaries.
+								</p>
+
+								<p class="normal-text" align="left">
+									A Flask web interface provides a local dashboard with live video streaming, manual override controls, and robot activity logs. Python scheduling and threading mechanisms coordinate real-time control with asynchronous cloud uploads, ensuring responsive robot behavior alongside background analysis.
+								</p>
+
+
+							<h3 align="left">Prototype</h3>
+							    <p></p>
+
+								<p class="normal-text" align="left">
+									A functional prototype of the AI-powered pet companion robot was implemented to validate the proposed layered AIoT architecture. The robot was successfully deployed in indoor environments and was able to detect pets, and perform follow behaviors in real time. Visual data and system logs were continuously collected during operation, providing the basis for subsequent behavioral analysis.
+								</p>
+
+							<figure class="image fit">
+								<img src="images/product.jpg" alt="AI-Powered Pet Companion Robot Image" />
+								<figcaption style="text-align:center; font-size:0.85em; color:#888;">
+									Our pet companion robot
+								</figcaption>
+							</figure>
+
+							<p></p>
+
+							<figure class="image fit">
+								<img src="images/system_demo.png" alt="System overview" />
+								<figcaption style="text-align:center; font-size:0.85em; color:#888;">
+									User interface (dashboard)
+								</figcaption>
+							</figure>
+							
+						</div>
+					</section>
+
+
+					<section id="results" class="two">
+						<div class="container">
+
+							<header>
+								<h2>Results</h2>
+							</header>
+
+							<p class="normal-text" align="left">
+								During operation, the robot continuously detects and tracks a target pet, estimates distance, and monitors nearby obstacles to approach, follow at a desired range, or retreat when too close. 
+							</p>
+							<p class="normal-text" align="left">
+								Interaction behaviors and audio cues are adaptively triggered based on inferred pet emotional states. When notable behaviors—such as prolonged inactivity or sudden movements—are detected, the system automatically records and uploads it to the cloud, where an LLM-based analyzer generates concise emotion and behavior summaries stored in a daily log accessible through the local web interface.
+							</p>
+							<p class="normal-text" align="left">
+								Results demonstration is available in 
+								<a href="https://youtu.be/zGTRVCkby8g" target="_blank" rel="noopener">
+									YouTube video
+								</a>.
+							</p>
+
+							<figure class="image fit">
+								<img src="images/console.png" alt="Console page" />
+								<figcaption style="text-align:center; font-size:0.85em; color:#888;">
+									Emotion and behavior analysis result
+								</figcaption>
+							</figure>
+
+						</div>
+					</section>
+
+					<section id="references" class="three">
+						<div class="container">
+
+							<header>
+								<h2>References</h2>
+							</header>
+
+							<p align="left">
+								This project builds on the following academic references, which guided our perception,
+								control, and cloud-intelligence design choices:
+							</p>
+
+							<ol class="reference-list" align="left">
+								<li>
+									Hung, H. T., &amp; Chen, R. C. (2020). Pet cat behavior recognition based on YOLO model.
+									<em>2020 International Symposium on Computer, Consumer and Control (IS3C)</em>,
+									391–394. <a href="https://doi.org/10.1109/IS3C50286.2020.00107">https://doi.org/10.1109/IS3C50286.2020.00107</a>
+								</li>
+								<li>
+									Day, C., McEachen, L., Khan, A., Sharma, S., &amp; Masala, G. (2019). Pedestrian recognition
+									and obstacle avoidance for autonomous vehicles using Raspberry Pi. <em>Advances in
+									Intelligent Systems and Computing</em>, 51–69. <a href="https://doi.org/10.1007/978-3-030-29513-4_5">https://doi.org/10.1007/978-3-030-29513-4_5</a>
+								</li>
+								<li>
+									Tola, R., Shukla, A. K., &amp; Pandey, G. N. (2020). Real time line tracking and obstacle
+									avoidance robot. <em>AIP Conference Proceedings, 2220</em>.
+									<a href="https://doi.org/10.1063/5.0001744">https://doi.org/10.1063/5.0001744</a>
+								</li>
+								<li>
+									B&auml;rmann, L., Kartmann, R., Peller-Konrad, F., Niehues, J., Waibel, A., &amp; Asfour, T. (2023).
+									Incremental learning of humanoid robot behavior from natural interaction and large
+									language models. <em>Frontiers in Robotics and AI, 11</em>.
+									<a href="https://doi.org/10.3389/frobt.2024.1455375">https://doi.org/10.3389/frobt.2024.1455375</a>
+								</li>
+								<li>
+									Kim, S. (2016). Smart pet care system using Internet of Things. <em>International Journal of
+									Smart Home, 10</em>(3), 211–218. <a href="https://doi.org/10.14257/ijsh.2016.10.3.21">https://doi.org/10.14257/ijsh.2016.10.3.21</a>
+								</li>
+								<li>
+									Guo, Q., &amp; Sun, Y. (2022). FindMyPet: An intelligent system for indoor pet tracking and
+									analysis using artificial intelligence and big data. <em>Data Science and Machine Learning</em>,
+									37–48. <a href="https://doi.org/10.5121/csit.2022.121504">https://doi.org/10.5121/csit.2022.121504</a>
+								</li>
+								<li>
+									Srivastava, Y., Singh, S., &amp; Ibrahim, S. P. S. (2021). Autonomous bot with ML-based
+									reactive navigation for indoor environment. <em>arXiv</em>.
+									<a href="https://doi.org/10.48550/arXiv.2111.12542">https://doi.org/10.48550/arXiv.2111.12542</a>
+								</li>
+							</ol>
+
+						</div>
+					</section>
+
+
+				<!-- About Me -->
+					<section id="team" class="two">
+						<div class="container">
+
+							<header>
+								<h2>Our Team</h2>
+							</header>
+
+							<!-- <a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a> -->
+
+
+							<div class="row">
+								<div class="4u 12u$(mobile)">
+									<article class="item">
+										<details class="image-toggle">
+											<summary>Click to view team photo</summary>
+											<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
+										</details>
+										<header>
+											<h3>Yitong Bai</h3>
+											<p>Leads computer vision and machine learning, including detection, perception, and model tuning.</p>
+										</header>
+									</article>
+								</div>
+								<div class="4u 12u$(mobile)">
+									<article class="item">
+										<details class="image-toggle">
+											<summary>Click to view team photo</summary>
+											<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
+										</details>
+										<header>
+											<h3>Tianjun Feng</h3>
+											<p>Owns vehicle control and motion planning systems, including behavior logic for robust pet tracking.</p>
+										</header>
+									</article>
+								</div>
+								<div class="4u$ 12u$(mobile)">
+									<article class="item">
+										<details class="image-toggle">
+											<summary>Click to view team photo</summary>
+											<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
+										</details>
+										<header>
+											<h3>Chengrui Li</h3>
+											<p>Designs the console experience and bridges computer vision modules with real-time hardware control.</p>
+										</header>
+									</article>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="4u 12u$(mobile)">
+									<article class="item">
+										<details class="image-toggle">
+											<summary>Click to view team photo</summary>
+											<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
+										</details>
+										<header>
+											<h3>Yang Li</h3>
+											<p>Implements LLM integrations, logging pipelines, and automated behavior analysis summaries.</p>
+										</header>
+									</article>
+								</div>
+							</div>
+
+						</div>
+					</section>
+
+				<!-- Contact -->
+					<section id="contact" class="four">
+						<div class="container">
+
+							<header>
+								<h2>Contact</h2>
+							</header>
+
+							<p align="left">
+								<strong>Project Team:</strong> Please contact the AI-Powered Pet Companion Robot team through the official EECS E4764 course communication channels (CourseWorks, Ed, or email), or by using the contact information provided with the project submission.</br>
+							</br>
+								<strong>Course:</strong> Columbia University EECS E4764 - Artificial Intelligence of Things<br>
+								<strong>Department:</strong> <a href="http://www.ee.columbia.edu">Department of Electrical Engineering</a><br>
+								<!-- <strong>Class Website:</strong>
+									<a href="https://edblogs.columbia.edu/eecs4764-001-2019-3/">Columbia University EECS E4764 Fall '22 IoT</a></br> -->
+								<strong>Instructor:</strong> <a href="https://www.engineering.columbia.edu/faculty-staff/directory/xiaofan-fred-jiang">Professor Xiaofan (Fred) Jiang</a>
+							</p>
+
+
+							<!-- <form method="post" action="#">
+								<div class="row">
+									<div class="6u 12u$(mobile)"><input type="text" name="name" placeholder="Name" /></div>
+									<div class="6u$ 12u$(mobile)"><input type="text" name="email" placeholder="Email" /></div>
+									<div class="12u$">
+										<textarea name="message" placeholder="Message"></textarea>
+									</div>
+									<div class="12u$">
+										<input type="submit" value="Send Message" />
+									</div>
+								</div>
+							</form> -->
+
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<div id="footer">
+
+				<!-- Copyright -->
+					<ul class="copyright">
+						<li>&copy; IoT Project | All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollzer.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

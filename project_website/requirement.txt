@@ -1,0 +1,8 @@
+Grading Criteria
+Technical Merit (40%): System integration, sensing pipeline, model design or training, evaluation, optimization, reliability, and user experience. Strong projects typically include: an embedded or hardware component, a networking or cloud or mobile component, and a data component incorporating ML or LLM or foundation models. Limited credit for shallow use of existing libraries or pretrained models without meaningful engineering or modeling insight.
+
+Impact (20%): Practical usefulness, clear problem definition, and evidence of real-world value through results.
+
+Novelty (20%): Original idea, new technical insight, or thoughtful system-and-AI co-design that goes beyond common implementations.
+
+Youtube link: https://youtu.be/zGTRVCkby8g

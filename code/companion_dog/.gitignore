@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+venv/
+.venv/
+env/
+
+# Logs
+*.log
+pet_follower.log
+
+# Archives
+*.zip
+pet_follower.zip
+
+# Models
+*.pt
+yolov8n.pt
+
+# IDEs
+.vscode/
+.idea/
+.cursor/
+

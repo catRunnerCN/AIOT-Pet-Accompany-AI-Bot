@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pet Companion Console</title>
+    <link rel="stylesheet" href="assets/dashboard.css" />
+  </head>
+  <body>
+    <div class="app-shell console-app">
+      <header class="app-header console-header">
+        <div>
+          <h1>MyPet Companion</h1>
+          <p class="subtitle">Emotion insights and daily activity log</p>
+        </div>
+        <div class="header-actions">
+          <div class="badge" id="connectionBadge">Offline</div>
+          <a class="nav-button" href="dashboard.html">Go to Dashboard</a>
+        </div>
+      </header>
+
+      <section class="config-panel">
+        <div class="field-group">
+          <label for="deviceHost">Raspberry Pi address</label>
+          <input
+            type="text"
+            id="deviceHost"
+            placeholder="e.g. 192.168.137.120"
+            autocomplete="off"
+          />
+        </div>
+        <div class="field-group compact">
+          <button id="testConnection">Test Connection</button>
+          <button id="saveConfig" class="primary">Save</button>
+        </div>
+      </section>
+
+      <main class="console-layout">
+        <article class="panel analysis-panel">
+          <header>
+            <h2>Pet Emotion Analysis</h2>
+            <div class="analysis-meta" id="analysisMeta">Awaiting analysis</div>
+          </header>
+          <div class="emotion-placeholder">
+            <div class="emotion-summary">
+              <div class="emotion-indicator" id="emotionIndicator">🙂</div>
+              <div>
+                <h3 id="emotionHeadline">Insights coming soon</h3>
+                <p id="emotionDetails">
+                  This space will highlight your pet's emotional trends once the emotion model is ready.
+                </p>
+              </div>
+            </div>
+            <div class="emotion-metrics">
+              <div>
+                <span>Current mood</span>
+                <strong id="emotionMood">Unknown</strong>
+              </div>
+              <div>
+                <span>Energy level</span>
+                <strong id="emotionEnergy">-</strong>
+              </div>
+              <div>
+                <span>Recommended action</span>
+                <strong id="emotionAdvice">Check back later</strong>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel console-panel">
+          <header>
+            <h2>Robot Console</h2>
+            <div class="mini-actions">
+              <span class="console-file-label">
+                Source:
+                <code>GCP Server Log</code>
+              </span>
+              <label class="checkbox inline">
+                <input type="checkbox" id="consoleAutoScroll" checked /> Auto scroll
+              </label>
+              <button class="ghost" id="consoleReload">Reload</button>
+            </div>
+          </header>
+          <div id="robotConsole" class="console-body"></div>
+        </article>
+      </main>
+    </div>
+    <script src="assets/console.js"></script>
+  </body>
+</html>
